@@ -1,6 +1,6 @@
 # TaskFlow AI
 
-A **production-style**, hiring-demo-ready **team task manager**: projects, RBAC (Admin / Member), JWT sessions, PostgreSQL + Prisma, REST APIs, Kanban with drag-and-drop, analytics dashboards (Recharts), comments, activity timelines, inbox notifications, and a polished SaaS UI (Tailwind, shadcn-style primitives, Framer Motion, dark/light mode).
+A **production-style**, **team task manager**: projects, RBAC (Admin / Member), JWT sessions, PostgreSQL + Prisma, REST APIs, Kanban with drag-and-drop, analytics dashboards (Recharts), comments, activity timelines, inbox notifications, and a polished SaaS UI (Tailwind, shadcn-style primitives, Framer Motion, dark/light mode).
 
 > **Note:** The app lives in `taskflow-ai/` because npm package names cannot contain spaces or capital letters from the parent folder `Ethara AI`.
 
@@ -133,31 +133,6 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run db:seed` | Seed demo data |
 | `npm run db:studio` | Prisma Studio |
 
----
-
-## Railway Deployment
-
-1. **Create** a Railway project and add a **PostgreSQL** plugin.
-2. **Create** a **Node** / **Web** service from this repo (`taskflow-ai` root).
-3. **Variables** (service → Variables), set at minimum:
-
-   - `DATABASE_URL` — from Railway Postgres (often injected automatically when linked).
-   - `JWT_SECRET` — generate a strong secret.
-   - `NODE_ENV=production`
-
-4. **Build command:** `npm run build`  
-5. **Start command:** `npm run start`
-
-6. After the first deploy, run migrations and seed **once** (Railway CLI one-off shell or a temporary deploy command):
-
-   ```bash
-   npx prisma migrate deploy
-   npm run db:seed
-   ```
-
-7. Optional: set `NEXT_PUBLIC_APP_URL` to your public URL for metadata / absolute links.
-
-Railway runs `postinstall` → `prisma generate`, so the client is available during `npm run build`.
 
 ---
 
